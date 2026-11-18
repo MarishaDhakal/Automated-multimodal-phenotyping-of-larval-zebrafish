@@ -1,0 +1,32 @@
+# Conda environment for the MCAM multimodal phenotyping pipeline.
+# Create with:
+#   conda env create -f environment.yml
+#   conda activate mcam_phenotyping
+#
+# Notes:
+#   - Production runs CPU-only PyTorch.
+#   - Segment Anything (SAM) is installed from source via pip (see below).
+
+name: mcam_phenotyping
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - numpy==2.2.6
+      - pandas==2.3.3
+      - scipy==1.15.2
+      - opencv-python==4.13.0
+      - scikit-image==0.25.2
+      - scikit-learn==1.7.2
+      - xgboost==3.2.0
+      - matplotlib==3.10.8
+      - Pillow==12.1.0
+      - joblib==1.5.3
+      # CPU PyTorch build:
+      - --extra-index-url https://download.pytorch.org/whl/cpu
+      - torch==2.10.0
+      - torchvision==0.25.0
+      # Segment Anything from source:
+      - git+https://github.com/facebookresearch/segment-anything.git

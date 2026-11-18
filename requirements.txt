@@ -1,0 +1,23 @@
+# Core runtime dependencies for the MCAM multimodal phenotyping pipeline.
+# Captured from the production environment (Python 3.10.19).
+# A CPU-only PyTorch build is used in production.
+
+numpy==2.2.6
+pandas==2.3.3
+scipy==1.15.2
+opencv-python==4.13.0
+scikit-image==0.25.2
+scikit-learn==1.7.2
+xgboost==3.2.0
+matplotlib==3.10.8
+Pillow==12.1.0
+joblib==1.5.3
+
+# CPU PyTorch build (install from the PyTorch CPU index):
+#   pip install torch==2.10.0 torchvision==0.25.0 --index-url https://download.pytorch.org/whl/cpu
+torch==2.10.0
+torchvision==0.25.0
+
+# Segment Anything (SAM) is installed directly from source:
+#   pip install git+https://github.com/facebookresearch/segment-anything.git
+segment-anything @ git+https://github.com/facebookresearch/segment-anything.git
